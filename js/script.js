@@ -56,11 +56,12 @@ resultsContainer.style.backgroundColor = "yellow";
 Create a function that has one parameter called list.
 Inside the function, loop through the list parameter and console log the name property in each object.
 Call the function and pass in the cats variable in the script.js file in the repo.*/
-//function (list) {
-//    for (let i = 0; i < list.length; i++) {
-//        console.log()
-//    }
-//}
+function pets(list) {
+    for (let i = 0; i < list.length; i++) {
+        console.log(list[i].name);
+    }
+}
+pets(cats);
 /*Question 8:
 Create a function called createCats. The function will have one parameter called cats.
 Inside the function loop through the value passed in as cats and create HTML for each object in the array.
@@ -69,3 +70,21 @@ If the age property is missing, it should display “Age unknown” instead.
 Return the HTML from the function.
 Call the function and pass in the cats array as the argument.
 Assign the return value of the function to the innerHTML property of the element on the HTML page with a class of cat-container.*/
+const catContainer = document.querySelector(".cat-container");
+let html = "";
+function createCats(cats) {
+    for (let i = 0; i < cats.length; i++) {
+        let catName = cats[i].name;
+        let catAge = "Age unknown";
+        if (cats[i].age) {
+            catAge = cats[i].age;
+        }
+        html += `<div>
+        <h5>${catName}</h5>
+        <p>${catAge}</p>
+        </div>`
+    }
+    return html;
+}
+createCats(cats);
+catContainer.innerHTML = html;
