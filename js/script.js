@@ -52,20 +52,20 @@ pets(cats);
 
 //Question 8
 const catContainer = document.querySelector(".cat-container");
-let html = "";
 function createCats(cats) {
+    let html = "";
     for (let i = 0; i < cats.length; i++) {
         let catName = cats[i].name;
         let catAge = "Age unknown";
         if (cats[i].age) {
             catAge = cats[i].age;
         }
-        html += `<div>
+        html += `<div style="border: 2px solid black">
         <h5>${catName}</h5>
         <p>${catAge}</p>
         </div>`
     }
     return html;
 }
-createCats(cats);
-catContainer.innerHTML = html;
+const newHtml = createCats(cats);
+catContainer.innerHTML = newHtml;
